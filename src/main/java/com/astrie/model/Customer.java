@@ -1,17 +1,21 @@
 package com.astrie.model;
-
+import jakarta.persistence.*;
 import java.util.Objects;
 
+
+@Entity
+@Table(name = "customers")
 public class Customer {
 
-        private String name;
+        @Id
+        @GeneratedValue(strategy = GenerationType.SEQUENCE)
         private int id;
+        private String name;
         private int age;
         private String  email;
 
-    public Customer(String name, int id, int age, String email) {
+    public Customer(String name, int age, String email) {
         this.name = name;
-        this.id = id;
         this.age = age;
         this.email = email;
     }
